@@ -1,0 +1,14 @@
+{
+  "001": {
+    "name": "Sanjeev Jha",
+    "email": "jhaa035@gmail.com",
+    "mobile": "7827670794",
+    "balance":900
+  },
+  "002": {
+    "name": "Rahul Jha",
+    "email": "rahul@gmail.com",
+    "mobile": "9874625588",
+    "balance": 100
+  }
+}

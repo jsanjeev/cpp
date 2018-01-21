@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i>
+      Back To Dashboard
+    </a>
+  </div>
+  <div class="col-md-6">
+    <div class="btn-group pull-right">
+      <a [routerLink]="['/edit-client/'+id]" class="btn btn-secondary">Edit</a>
+      <button class="btn btn-danger" type="button" (click)="onDeleteClick()">Delete</button>
+    </div>
+  </div>
+</div>
+<br><br>
+<div>
+  <div *ngIf="client" class="card">
+    <h3 class="card-header">{{client.name}}</h3>
+    <div class="card-block">
+      <div class="row">
+        <div class="col-md-4">
+          Client ID : {{id}}
+        </div>
+        <div class="col-md-8">
+          <div class="pull-right">
+            Client Balance :
+            <span [class.text-danger]="hasBalance" [class.text-success]="!hasBalance">
+              {{client.balance | currency:'INR':true}}
+            </span>
+            <small>
+              <a (click)="showBalanceUpdateInput=!showBalanceUpdateInput">
+                <i class="fa fa-pencil"></i>
+              </a>
+            </small>
+            <div class="clearfix">
+              <form *ngIf="showBalanceUpdateInput" (submit)="updateBalance(id)" class="form-inline pull-right">
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="client.balance" name="balance" class="form-control">
+                </div>
+                  <button class="btn btn-primary" style="margin-left:3px">Update</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <ul class="list-group">
+        <li class="list-group-item">Client Email : {{client.email}}</li>
+        <li class="list-group-item">Client Mobile : {{client.mobile}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
